@@ -1,45 +1,128 @@
-"1.0b3 (created: 2010/11/06 12:31:35)
 " vi: set ft=vim :
+" 1. Important {{{1
+" =================
+set runtimepath=~/pentafiles
 
-highlight Hint       font-size: 14px; background: rgba(210,1,133,0.8) !important; border: 2px solid rgb(165,1,105); padding: 4px; border-radius: 3px; font-weight: bold; margin-left: -25px; color: white; font-family: Helvetica; line-height:1em;
-highlight HintActive background: rgba(145,197,43,0.8)    !important;
-highlight HintElem   background: rgba(255, 209, 20, 0.7) !important;
-highlight StatusLine -moz-appearance: none !important; font-weight: bold; background: transparent !important; border: 0px !important; min-height: 22px !important; text-shadow: none !important; font: normal 14px/1 'Menlo' !important; padding: 3px 0px 3px 5px !important;
-highlight CmdLine    padding: 1px !important; font: normal 14px 'Source Code Pro' !important;
-highlight CmdOutput  font: normal 13px 'Source Code Pro' !important;
-highlight CompItem   font: normal 13px 'Source Code Pro' !important;
+" Load plugins that are css as well
+set loadplugins='\.(css|js|penta)$'
 
-highlight Find   background: #d6c149; color: #000;
+" Open diverted links automatically
+set activate+=diverted
 
-set runtimepath=~/.pentadactyl
-set editor='vim -f +<line> <file>'
-" "set followhints=1
-set showtabline=multitab
-set showstatuslinks=command
+" Temporary workaround for copy paste in text boxes
+" https://code.google.com/p/dactyl/issues/detail?id=517
+imap -builtin <M-z> <pass>
+imap -builtin <M-a> <pass>
+imap -builtin <M-x> <pass>
 
-" FASTER PLEASE
-nmap -builtin -silent j 3j
-nmap -builtin -silent k 3k
+" 2. Moving around, searching and patterns {{{1
+" =============================================
+" Find as you type
+set incfind
 
-" Console toggle
-nmap -builtin <c-g> <m-a-k><esc>
-imap -builtin <c-g> <esc><m-a-k><esc>
+" Unless they contain upper-case letters
+set findcase=smart
 
-" Inspect element toggle
-nmap -builtin <c-s> <m-a-i>
-imap -builtin <c-s> <esc><m-a-i>
-
-" YES YES YES REMOVE THE IDIOCY
-nmap -builtin <bs> <nop>
-
-" Highlight all search matches, not just the first.
-set hlfind
-
-" Shut up.
-javascript dactyl.beep = function() { return false; }
-
-" Okay DDG let's see if I can stand you.
+" Set DuckDuckGo as default search engine.
 set defsearch=duckduckgo
 
-" Use the one true colorscheme Solarized
+" 5. Syntax, highlighting and spelling {{{1
+" ========================================
+
+" Highlight the terms
+set hlfind
+
+" A toggle for search highlight
+map <silent> coh :set hlfind!<CR>
+
+" 7. Multiple tab pages {{{1
+" ==========================
+" Move the current tab
+map -builtin <C-S-H> <Esc>:tabmove! -1<CR>
+map -builtin <C-S-L> <Esc>:tabmove! +1<CR>
+
+" Never wanted to go back when I hit delete, now it won't
+nmap -builtin <bs> <nop>
+
+" Go into pass through mode when invoking group tabs
+nmap -builtin <M-S-E> <C-z><M-S-E>
+
+" Go to the next/previous tab
+map -builtin <C-h> <C-p>
+map -builtin <C-l> <C-n>
+
+" 11. Messages and info {{{1
+" ==========================
+" Turn off the freakin' bell
+hi Bell display: none;
+"
+" Remove the right and bottom scrollbars
+set guioptions-=rb
+
+" Get rid of the tab bar, that is valuable space!
+"set showtabline=0
+
+" Use a different color scheme
 colorscheme solarized-dark
+
+" Only show the tab bar if there are more than 1 tabs
+set showtabline=multitab
+
+" 13. Editing text {{{1
+" =====================
+set editor='vim -f +<line> <file>'
+
+" 17. Mapping {{{1
+" ================
+" Don't follow a hint immediately
+map -builtin f ;;
+
+" Bring back/hide portions of the GUI
+map -builtin <silent> cog :set guioptions+=mBT<CR>
+map -builtin <silent> coG :set guioptions-=mBT<CR>
+map -builtin <silent> cob :toolbartoggle Bookmarks Toolbar<CR>
+map -builtin <silent> cot :set showtabline=always<CR>
+map -builtin <silent> coT :set showtabline=never<CR>
+
+" Smooth scroll setting
+set scrollsteps=20
+set scrolltime=200
+
+" Scroll settings
+map -builtin w 10h
+map -builtin e 10l
+
+" Go forward and back
+map -builtin J <C-f>
+map -builtin K <C-b>
+
+" Bookmarklets {{{2
+
+" NOTE: These are bookmarks in Firefox with keywords. You'll have
+"       to add the bookmarks if they don't exist.
+
+" Save page to Pocket
+map -builtin <silent> bp :open to-pocket<CR>
+
+" Save to Pinboard.in and focus in tags field
+map -builtin <silent> bi :open to-pinboard<CR>
+
+" Save to Buffer app
+map -builtin <silent> bb :open to-buffer<CR>
+
+" Save to Pinterest
+map -builtin <silent> bn :open to-pinterest<CR>
+
+" 20. Command line editing {{{1
+" =============================
+" Set wild mode to show completions as you type
+set wildmode="list:full"
+
+" Fix completion list so search engines don't kill tabbing
+set complete=lS
+
+" Show up to 35 items in the completion list
+set maxitems=35
+
+" Turn on folds
+" vim: fdm=marker
