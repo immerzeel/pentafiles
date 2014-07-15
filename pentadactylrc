@@ -95,7 +95,7 @@ map -builtin K <C-b>
 "       to add the bookmarks if they don't exist.
 
 " Save page to Pocket
-map -builtin <silent> bp :open to-pocket<CR>
+map -builtin <silent> bo :open to-pocket<CR>
 
 " Save to Pinboard.in and focus in tags field
 map -builtin <silent> bi :open to-pinboard<CR>
