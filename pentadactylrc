@@ -110,3 +110,9 @@ set maxitems=35
 
 " Turn on folds
 " vim: fdm=marker
+
+" 25. Various {{{1
+" ================
+" LastPass {{{2
+" Allow shortcut to open LastPass home.
+nmap -builtin <A-C-h> <pass>
