@@ -112,7 +112,7 @@ map -builtin <silent> bn :open to-pinterest<CR>
 set wildmode="list:full"
 
 " Fix completion list so search engines don't kill tabbing
-set complete=lS
+set complete=ls
 
 " Show up to 35 items in the completion list
 set maxitems=35
