@@ -28,7 +28,6 @@ set defsearch=duckduckgo
 
 " 5. Syntax, highlighting and spelling {{{1
 " ========================================
-
 " Highlight the terms
 set hlfind
 
@@ -37,10 +36,6 @@ map <silent> coh :set hlfind!<CR>
 
 " 7. Multiple tab pages {{{1
 " ==========================
-" Move the current tab
-map -builtin <C-S-H> <Esc>:tabmove! -1<CR>
-map -builtin <C-S-L> <Esc>:tabmove! +1<CR>
-
 " Never wanted to go back when I hit delete, now it won't
 nmap -builtin <bs> <nop>
 
@@ -50,6 +45,10 @@ nmap -builtin <M-S-E> <C-z><M-S-E>
 " Go to the next/previous tab
 map -builtin <C-h> <C-p>
 map -builtin <C-l> <C-n>
+
+" Move the current tab
+map -builtin <C-S-H> <Esc>:tabmove! -1<CR>
+map -builtin <C-S-L> <Esc>:tabmove! +1<CR>
 
 " 11. Messages and info {{{1
 " ==========================
