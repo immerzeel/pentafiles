@@ -33,9 +33,6 @@ map <silent> coh :set hlfind!<CR>
 " Never wanted to go back when I hit delete, now it won't
 nmap -builtin <bs> <nop>
 
-" Go into pass through mode when invoking group tabs
-nmap -builtin <M-S-E> <C-z><M-S-E>
-
 " Go to the next/previous tab
 map -builtin <C-h> <C-p>
 map -builtin <C-l> <C-n>
