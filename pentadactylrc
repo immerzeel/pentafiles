@@ -9,12 +9,6 @@ set loadplugins='\.(css|js|penta)$'
 " Open diverted links automatically
 set activate+=diverted
 
-" Temporary workaround for copy paste in text boxes
-" https://code.google.com/p/dactyl/issues/detail?id=517
-imap -builtin <M-z> <pass>
-imap -builtin <M-a> <pass>
-imap -builtin <M-x> <pass>
-
 " 2. Moving around, searching and patterns {{{1
 " =============================================
 " Find as you type
