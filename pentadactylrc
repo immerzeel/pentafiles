@@ -59,13 +59,10 @@ hi Bell display: none;
 set guioptions-=rb
 
 " Get rid of the tab bar, that is valuable space!
-"set showtabline=0
+set showtabline=never
 
 " Use a different color scheme
 colorscheme solarized-dark
-
-" Only show the tab bar if there are more than 1 tabs
-set showtabline=multitab
 
 " 13. Editing text {{{1
 " =====================
