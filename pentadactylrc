@@ -1,4 +1,4 @@
-" vi: set ft=vim :
+" vim: set ft=vim :
 " 1. Important {{{1
 " =================
 set runtimepath=~/pentafiles
@@ -45,12 +45,9 @@ map -builtin <C-S-L> <Esc>:tabmove! +1<CR>
 " ==========================
 " Turn off the freakin' bell
 hi Bell display: none;
-"
+
 " Remove the right and bottom scrollbars
 set guioptions-=rb
-
-" Get rid of the tab bar, that is valuable space!
-set showtabline=never
 
 " Use a different color scheme
 colorscheme solarized-dark
@@ -108,11 +105,12 @@ set complete=ls
 " Show up to 35 items in the completion list
 set maxitems=35
 
-" Turn on folds
-" vim: fdm=marker
-
 " 25. Various {{{1
 " ================
 " LastPass {{{2
 " Allow shortcut to open LastPass home.
 nmap -builtin <A-C-h> <pass>
+
+" Font settings {{{2
+" Make the Commandline show a bigger font
+hi CmdLine -append font-size:16px !important
